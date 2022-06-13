@@ -1,0 +1,87 @@
+:root {
+  --text-color: --accent-color;
+}
+
+body {
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: aquamarine;
+  padding: 8px 24px;
+}
+
+.navbar__logo {
+  font-size: 24px;
+  color: red;
+}
+
+.navbar__logo a {
+  font-size: 24px;
+  color: chocolate;
+}
+
+.navbar__menu {
+  display: flex;
+  list-style: none;
+  padding: 0px;
+}
+
+.navbar__menu li {
+  padding: 8px 12px;
+}
+
+.navbar__links {
+  display: flex;
+  list-style: none;
+  padding-left: 0%;
+}
+
+.navbar__links li {
+  padding: 12px 12px;
+}
+
+.navbar__menu li:hover {
+  background-color: azure;
+  border-radius: 4px;
+}
+
+.navbar__toogleBtn {
+  position: absolute;
+  right: 32px;
+  top: 4px;
+  color: brown;
+  margin: 12px 0px;
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+  }
+
+  .navbar__links {
+    display: none;
+  }
+
+  .navbar__menu {
+    flex-direction: column;
+    display: none;
+  }
+  .navbar__toogleBtn {
+    display: block;
+  }
+  .navbar__menu.active,
+  .navbar__links.active {
+    display: flex;
+  }
+}
