@@ -1,21 +1,23 @@
 
 const clickCallback = () => {
     let inputValue = document.getElementById("inputName").value
+
     const httpReqeust = new XMLHttpRequest();
     httpReqeust.onreadystatechange = () => {
         if (httpReqeust.readyState == XMLHttpRequest.DONE) {
             if (httpReqeust.status === 200) {
-                const result = httpReqeust.response;
-                alert("got result: " + result);
+                alert(httpReqeust.response)
+                // const result = JSON.parse(httpReqeust.responseText);
+                // alert("got result: " + result.data);
             } else {
                 alert('Request error');
             }
         }
     }
-    let url = "server.php?q=";
-    httpReqeust.open('GET', url + inputValue, true)
-    httpReqeust.responseType = "json";
-    httpReqeust.send()
+    let url = "server.php";
+    httpReqeust.open('GET', url);
+    httpReqeust.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    httpReqeust.send();
     console.log('clicked')
 }
 
