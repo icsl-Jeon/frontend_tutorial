@@ -4,22 +4,25 @@ import {Button} from "react-bootstrap";
 
 const Header = () => {
     return (
-        <div>
-            <header className={styles.header}>
-                <div className={styles.nav_item_list}>
-                    <a className={styles.nav_item} href="">Felipe Board</a>
-                    <a className={styles.nav_item} href="">Home</a>
+        <header className="shadow-sm">
+            <div className="d-flex p-2 gap-3 bg-white justify-content-center">
+                <div className="d-flex pe-xxl-5">
+                    <div className={styles.nav_item} href="">FELIPE BOARD</div>
                 </div>
 
-                <ul className={styles.nav_item_list}>
-                    <Button className={styles.nav_item}>Create</Button>
-                    <Button className={styles.nav_item}  variant="link">Tutorial</Button>
-                    <Button className={styles.nav_item}  variant="link">API</Button>
-                    <Button className={styles.nav_item}  variant="link">Contact</Button>
+                <form className="flex-grow-1 me-3 mt-1" role="search">
+                    <input type="search" className="form-control" placeholder="Search..." aria-label="Search"/>
+                </form>
 
-                </ul>
-            </header>
-        </div>
+                <div className="d-flex ps-xl-5">
+                    <Button className={styles.nav_item}>Create</Button>
+                    <div className={styles.nav_item}>Tutorial</div>
+                    <div className={styles.nav_item}>API</div>
+                    <div className={styles.nav_item}>Contact</div>
+                </div>
+            </div>
+        </header>
+
     )
 }
 

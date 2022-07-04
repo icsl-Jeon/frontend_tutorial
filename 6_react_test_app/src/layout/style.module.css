@@ -1,19 +1,29 @@
 .main {
-      min-height: calc(100vh - 180px);
+    min-height: calc(100vh - 50px);
 }
 
-.header{
-      display: flex;
-      justify-content: space-between;
+.header {
+    display: flex;
+    justify-content: space-between;
 }
 
-.nav_item{
-      margin: 0.1rem;
+.nav_item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
 }
 
-.nav_item_list{
-      padding: 10px;
-      display: flex;
-      justify-content: flex-start;
-      list-style: none;
+.nav_item_list {
+    margin: 0 12px 2px 0;
+    display: flex;
+    justify-content: flex-start;
+    align-content: center;
+    list-style: none;
+}
+
+.footer {
+    margin-top: 30px;
+    height: 50px;
+    background: #282c34;
+    color: azure;
 }

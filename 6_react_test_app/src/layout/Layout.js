@@ -10,7 +10,9 @@ const Layout = () => {
             <main className={styles.main}>
                 main contents here
             </main>
-            <Footer></Footer>
+            <div className={styles.footer}>
+                <Footer></Footer>
+            </div>
         </Fragment>
     )
 }
