@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import logo from './logo.svg';
 import './App.css';
 import PhoneForm from "./components/PhoneForm";
+import PhoneInfo from "./components/PhoneInfo";
+import PhoneInfoList from "./components/PhoneInfoList";
 
 class App extends Component {
     id = 0; // this is not managed as state
@@ -10,7 +12,7 @@ class App extends Component {
         information: [],
     }
 
-    handleCreate = (data) => {
+    handleCreate = (data) => { // data = state of PhoneForm ?
         const {information} = this.state
         this.setState({
             information: information.concat({
@@ -24,7 +26,10 @@ class App extends Component {
             <div className="App">
                 <PhoneForm onCreate={this.handleCreate}>
                 </PhoneForm>
-                {JSON.stringify(this.state.information)}
+                {/*{JSON.stringify(this.state.information)}*/}
+                {/* NO_KEY: not a good way for deletion and insertion*/}
+                {/*{this.state.information.map(item => <PhoneInfo info = {item}/>)}*/}
+                <PhoneInfoList information = {this.state.information}></PhoneInfoList>
             </div>
         )
     };
