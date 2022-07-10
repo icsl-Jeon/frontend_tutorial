@@ -2,6 +2,11 @@ import React, {Component} from 'react';
 
 class PhoneInfo extends Component {
 
+    handleRemove = () => {
+        const {info, onRemove} = this.props
+        onRemove(info.id)
+    }
+
     render() {
         const {data, id} = this.props.info // not necessarily state
         const {name, phone} = data
@@ -13,6 +18,7 @@ class PhoneInfo extends Component {
             <div style={sytle}>
                 <div>{name}</div>
                 <div>{phone}</div>
+                <button onClick={this.handleRemove}> 삭제 </button>
             </div>
         );
     }

@@ -4,10 +4,11 @@ import PhoneInfo from "./PhoneInfo";
 
 class PhoneInfoList extends Component {
 
-    render() {
 
-        const {information} = this.props
-        const list = information.map(item => <PhoneInfo info = {item} key = {item.id} />)
+
+    render() {
+        const {information, onRemove} = this.props
+        const list = information.map(item => <PhoneInfo info = {item} key = {item.id} onRemove = {onRemove} />)
         return (
             <div>
                 {list}

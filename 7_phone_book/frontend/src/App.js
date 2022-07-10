@@ -21,15 +21,27 @@ class App extends Component {
         })
     }
 
+    handleRemove = (id) => {
+        const {information} = this.state
+        this.setState({
+                information: information.filter((item) => item.id !== id)
+            }
+        )
+        console.log(JSON.stringify(this.state.information))
+    }
+
     render() {
         return (
             <div className="App">
+                {/* Every re-rendering, call onCreate */}
                 <PhoneForm onCreate={this.handleCreate}>
                 </PhoneForm>
                 {/*{JSON.stringify(this.state.information)}*/}
                 {/* NO_KEY: not a good way for deletion and insertion*/}
                 {/*{this.state.information.map(item => <PhoneInfo info = {item}/>)}*/}
-                <PhoneInfoList information = {this.state.information}></PhoneInfoList>
+                <PhoneInfoList information = {this.state.information}
+                               onRemove = {this.handleRemove}>
+                </PhoneInfoList>
             </div>
         )
     };
