@@ -16,7 +16,7 @@ class App extends Component {
         const {information} = this.state
         this.setState({
             information: information.concat({
-                data, id: this.id++
+                data: data, id: this.id++
             }),
         })
     }
@@ -30,6 +30,25 @@ class App extends Component {
         console.log(JSON.stringify(this.state.information))
     }
 
+    handleUpdate = (id, data) => {
+
+        this.setState({
+                information: this.state.information.map(
+                    info => {
+
+                        if (info.id !== id) {
+                            return info
+                        } else
+                            return {
+                                data: data,
+                                id: id,
+                            }
+                    }
+                )
+            }
+        )
+    }
+
     render() {
         return (
             <div className="App">
@@ -39,8 +58,8 @@ class App extends Component {
                 {/*{JSON.stringify(this.state.information)}*/}
                 {/* NO_KEY: not a good way for deletion and insertion*/}
                 {/*{this.state.information.map(item => <PhoneInfo info = {item}/>)}*/}
-                <PhoneInfoList information = {this.state.information}
-                               onRemove = {this.handleRemove}>
+                <PhoneInfoList information={this.state.information}
+                               onRemove={this.handleRemove} onEdit={this.handleUpdate}>
                 </PhoneInfoList>
             </div>
         )
