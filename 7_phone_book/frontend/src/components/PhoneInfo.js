@@ -29,35 +29,19 @@ class PhoneInfo extends Component {
             const {info, onEdit} = this.props
             onEdit(info.id, {name: this.state.name, phone: this.state.phone})
         }
-
-        // if (this.state.editing) {
-        //     const {info, onEdit} = this.props
-        //
-        //     this.setState({
-        //             editing: true,
-        //             name: info.data.name,
-        //             phone: info.data.phone
-        //         }
-        //     )
-        // }
-
-        //
-        //
-        // if (this.state.editing)
-        //     onEdit(info.id, {name: this.state.name, phone: this.state.phone})
-        // else
-        //     this.setState({
-        //             editing: true,
-        //             name: info.data.name,
-        //             phone: info.data.phone
-        //         }
-        //     )
     }
 
     handleChange = (e) => {
         this.setState({
             [e.target.name]: e.target.value
         })
+    }
+
+    shouldComponentUpdate(nextProps, nextState) {
+        if (this.state!==nextState){
+            return true;
+        }
+        return this.props.info !== nextProps.info
     }
 
     render() {

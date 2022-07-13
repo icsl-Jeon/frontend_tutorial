@@ -10,15 +10,21 @@ class App extends Component {
 
     state = {
         information: [],
+        keyword: ""
     }
 
     handleCreate = (data) => { // data = state of PhoneForm ?
+
+        console.log(JSON.stringify(data))
+
         const {information} = this.state
         this.setState({
             information: information.concat({
                 data: data, id: this.id++
             }),
         })
+
+
     }
 
     handleRemove = (id) => {
@@ -35,7 +41,6 @@ class App extends Component {
         this.setState({
                 information: this.state.information.map(
                     info => {
-
                         if (info.id !== id) {
                             return info
                         } else
@@ -49,6 +54,11 @@ class App extends Component {
         )
     }
 
+    handleChange = (e) => {
+        // console.log(e.target.value)
+        this.setState({keyword: e.target.value})
+    }
+
     render() {
         return (
             <div className="App">
@@ -58,9 +68,11 @@ class App extends Component {
                 {/*{JSON.stringify(this.state.information)}*/}
                 {/* NO_KEY: not a good way for deletion and insertion*/}
                 {/*{this.state.information.map(item => <PhoneInfo info = {item}/>)}*/}
-                <PhoneInfoList information={this.state.information}
+                <PhoneInfoList information={this.state.information.filter(item => item.data.name.indexOf(this.state.keyword) > -1 )}
                                onRemove={this.handleRemove} onEdit={this.handleUpdate}>
                 </PhoneInfoList>
+                <input placeholder='검색..' onChange={this.handleChange} value = {this.state.keyword}>
+                </input>
             </div>
         )
     };
